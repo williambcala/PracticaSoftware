@@ -1,0 +1,16 @@
+#con esto puedo agregar campos configuraciones...
+version: "3.7"
+services:
+  backend: #contenedor para el servicio que voy a construir llamado backend
+    container_name: backend #nombre de mi contenedor 
+    build:
+      context: . #para encontrar el archivo
+      dockerfile: Dockerfile
+    ports: #entramos a puertos
+      - 3001:5001
+    networks: #aqui tengo mi red
+      - processor-net #name
+  
+networks:
+  processor-net:
+    driver: bridge #tipo de red
