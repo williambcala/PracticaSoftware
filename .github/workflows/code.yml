@@ -3,7 +3,8 @@ name: Code workflow
 on:
   push:
     branches:
-      -main
+      - main
+      - master
 
 jobs:
   code-validation:
