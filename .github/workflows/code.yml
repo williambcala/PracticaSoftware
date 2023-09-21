@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      -name: Checkout code
-        uses: actions/Checout@v3
+      - name: Checkout code
+        uses: actions/Checkout@v3
 
-      -name: Review files 
+      - name: Review files 
         run: ls
