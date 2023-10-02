@@ -7,6 +7,7 @@ import { PORT } from './src/commons/env.mjs';
 
 const app = Express();
 app.use(bodyParser.json());
+app.use();
 
 app.get('/', (req, res) => {
   res.send('ok');
@@ -21,7 +22,7 @@ app.use((error, req, res, next) => {
     const { payload } = err.output;
     return res.status(statusCode).json(payload);
   }
-  return next;
+  return next();
 });
 
 const startServer = async () => {

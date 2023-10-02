@@ -1,12 +1,12 @@
 import { Router } from 'express';
-// eslint-disable-next-line
-import applyFiltersHandler from '../applyFiltersHandler.mjs';
+import multer from 'multer';
+import applyFiltersHandler from './applyFiltersHandler.mjs';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  res.send('ok images GET');
-});
+const upload = multer({ storage: multer.memoryStorage() });
+
+router.post('/', upload.array('images[]'), applyFiltersHandler);
 
 export const test = () => {};
 export default router;
